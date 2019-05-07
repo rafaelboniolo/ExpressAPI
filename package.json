@@ -15,6 +15,6 @@
   "scripts": {
     "tsc": "tsc",
     "dev": "nodemon --watch src/ --exec \"ts-node src/server.ts\" -e ts",
-    "easy":"nodemon --watch src/ --exec \"ts-node serverEasy.ts\" -e ts"
+    "easy": "nodemon --watch src/ --exec \"ts-node serverEasy.ts\" -e ts"
   }
 }

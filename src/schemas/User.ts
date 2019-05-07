@@ -1,8 +1,9 @@
-import {Schema, model, Document, ConnectionBase} from 'mongoose'
+import {Schema, model, Document, Model} from 'mongoose'
 
-interface UserInterface extends Document{
+interface iUser extends Document{
     nome: String,
     ra:   String,
+    _id:  String
 }
 
 const UserSchema = new Schema({
@@ -14,4 +15,4 @@ const UserSchema = new Schema({
     }
 })
 
-export default model<UserInterface>('User', UserSchema);
+export const User:Model<iUser> = model<iUser>('User', UserSchema);

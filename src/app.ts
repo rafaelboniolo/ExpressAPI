@@ -2,6 +2,8 @@ import express from "express"
 import mongoose from 'mongoose'
 import routes from './routes'
 import RequestMonitorController from './controllers/RequestMonitorController'
+import Auth from "./security/Auth";
+import mongoConfig from "./database/mongoConfig";
 
 class App{
     public express: express.Application;
@@ -17,10 +19,11 @@ class App{
     private middlewares():void{
         this.express.use(express.json());
         this.express.use(RequestMonitorController.create)
+        this.express.use(Auth.authenticate)
     }
 
     private database():void{
-        mongoose.connect('mongodb://localhost:27017/tsexpress',{useNewUrlParser:true});
+        mongoose.connect(mongoConfig,{useNewUrlParser:true});
     }
 
     private routes():void{
